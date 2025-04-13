@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fslog"
+version = "0.1.0"
+authors = [
+    {name = "Fsain228", email = "Fsain30178@gmail.com"},
+]
+description = "Colorful logging library with log rotation and RGB support"
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries",
+]
+
+[project.urls]
+Homepage = "https://github.com/Fsain228/fslog"
+Repository = "https://github.com/Fsain228/fslog.git"
