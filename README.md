@@ -2,7 +2,7 @@
 This is my first Python logging library that helps you organize log messages with colorful output and log rotation.
 
 Installation:
-pip install fslog
+pip install fsllog
 
 How It Works?
 
