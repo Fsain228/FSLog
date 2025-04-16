@@ -78,7 +78,10 @@ class FSLog:
         log_files.sort(key=os.path.getctime)
         while len(log_files) > self.max_logs-1:
             oldest_file = log_files.pop(0)
-            os.remove(oldest_file)
+            try:
+                os.remove(oldest_file)
+            except Exception as e:
+                self.error(f"Failed to remove old log file {oldest_file}: {e}")
 
     def lib_debug(self, toggle):
         self.usage_debug("lib_debug")
@@ -107,8 +110,10 @@ class FSLog:
             stats += f", Size: {current_size:.2f} KB"
             last_modified = datetime.fromtimestamp(os.path.getmtime(self.log_file_name))
             stats += f", Modified: {last_modified.strftime('%Y-%m-%d %H:%M')}"
-
         return self.log(stats, "STATUS", color)
+
+def create_logger(log_folder_path="Logs", max_logs=10):
+    return FSLog(log_folder_path, max_logs)
 
 class Colors:
     @staticmethod
